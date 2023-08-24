@@ -1,0 +1,92 @@
+@import url("https://fonts.googlepis.com/css2?family=Poppins:wght@400;600;800&display=");
+*{
+margin: 0;
+padding: 0;
+}
+*,::before,::after {
+box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+
+}
+body{
+    font-family: "poppins";
+    font-size: 1em;
+    color: aliceblue;
+
+}
+.site{
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+.button{
+    position: relative;
+    color: inherit;
+    width: 200px;
+    height: 60px;
+    font-size: inherit;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 2em;
+    background: linear-gradient(-45deg, hsla(333,100%,53%,1)0%,hsla(33,94%,57%,1)100%);
+}
+.button::before, .button::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 2em;
+    background: repeating-linear-gradient(-45deg, red 0%, yellow 7.14%, lime 14.28%, aqua 21.42%,cyan 28.56%,blue 35.7%, magenta 42.84%,red 50%);
+    background-size: 200vw 200vw;
+    animation: gradient 5s infinite linear;
+    opacity: 0;
+    visibility: hidden;
+
+}
+@keyframes gradient {
+    0%{
+background-position-x: 0%;
+    }
+    100%{
+        background-position-x: 200vw;
+    }
+    
+}
+.button:hover::before, .button:hover::after{
+    opacity: 1;
+    visibility: visible;
+}
+.button:hover::before{
+    filter: blur(20p);
+}
+.button span{
+    position: relative;
+    z-index: 10;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.button span::before{
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 50px;
+    background-color: transparent ;
+    z-index: -1;
+    top: 5px;
+    left: 5px;
+    border-radius: 2em;
+
+}
+.button:hover span::before{
+    background-color: rgb(0, 0, 0) ;
+}
